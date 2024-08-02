@@ -3,7 +3,6 @@ import fetch from 'node-fetch';
 import cors from 'cors';
 
 const app = express();
-const port = 3001;
 
 const FOODWALLAH_MENU_API_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=";
 
@@ -65,7 +64,4 @@ app.get('/api/menu/:restaurantId', async (req, res) => {
     }
 });
 
-// Bind to all network interfaces
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Proxy server running at http://0.0.0.0:${port}`);
-});
+export default app;

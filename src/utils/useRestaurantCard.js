@@ -4,7 +4,8 @@ import { FOODWALLAH_RESTAURANT_API_URL } from "./constants";
 
 const useRestauarntCard = () =>
 {
-    const proxyUrl = 'http://localhost:3001/api/restaurants';
+    const proxyUrl = process.env.REACT_APP_API_URL + '/api/restaurants';
+
     const [listofrestraunts, setlistofrestraunts] = useState([]);
      useEffect(() => {
         fetchData();
