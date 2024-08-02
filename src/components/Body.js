@@ -74,7 +74,7 @@ const Body = () => {
             <Link
               key={restaurant.info.id}
               to={`/restaurants/${restaurant.info.id}`}
-              className="m-2 w-full xs:w-1/2  md:w-1/3 lg:w-1/4 xl:w-1/5"
+              className="m-2 w-full xxs:w-1/2  md:w-1/3 lg:w-1/4 xl:w-1/5"
 
             >
               {restaurant?.info?.promoted ? (

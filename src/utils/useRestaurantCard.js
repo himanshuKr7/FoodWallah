@@ -4,13 +4,14 @@ import { FOODWALLAH_RESTAURANT_API_URL } from "./constants";
 
 const useRestauarntCard = () =>
 {
+    const proxyUrl = 'http://localhost:3001/api/restaurants';
     const [listofrestraunts, setlistofrestraunts] = useState([]);
      useEffect(() => {
         fetchData();
     }, []); 
     const fetchData = async () => {
         try {
-            const response = await fetch(FOODWALLAH_RESTAURANT_API_URL);
+            const response = await fetch(proxyUrl);
 
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
