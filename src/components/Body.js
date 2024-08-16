@@ -5,11 +5,14 @@ import Shimmer from "./Shimmer";
 import useRestaurantCard from "../utils/useRestaurantCard";
 import useOnlinestatus from "../utils/useOnlinestatus";
 import Usercontext from "../utils/Usercontext";
+import { useSelector } from "react-redux";
 
 const Body = () => {
   const [searchtext, setsearchtext] = useState("");
   const listofrestraunts = useRestaurantCard();
   const [targetrestaurant, settargetrestaurant] = useState([]);
+  const user = useSelector((store) => store.user);
+
 
   const Promotedcard = UpdatedReastaurantCard(RestaurantCard);
 

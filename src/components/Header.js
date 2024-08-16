@@ -1,19 +1,47 @@
-import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import useOnlinestatus from "../utils/useOnlinestatus";
 import Usercontext from "../utils/Usercontext";
 import { LOGO_URL } from "../utils/constants";
 import { FaCartShopping } from "react-icons/fa6";
+import { auth } from '../utils/firebase';
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { adduser, removeuser } from '../utils/userSlice';
 
 export const Header = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((store) => store.user);
   const [loginbtn, setloginbtn] = useState("Login");
   const Onlinestatus = useOnlinestatus();
-
-  const { loggedinuser } = useContext(Usercontext);
-  console.log(loggedinuser);
-
   const cartItems = useSelector((store) => store.cart.items);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName } = user;
+        dispatch(adduser({ uid: uid, email: email, displayName: displayName }));
+        setloginbtn("Sign Out");  
+      } else {
+        dispatch(removeuser());
+        setloginbtn("Sign In");   
+      }
+    });
+
+    return () => unsubscribe();
+  }, [dispatch]);
+
+  const handlesignout = () => {
+    signOut(auth)
+      .then(() => {
+        setloginbtn("Login");  
+        navigate("/Login");
+      })
+      .catch((error) => {
+        navigate("/error");
+      });
+  };
 
   return (
     <div className="flex xs:flex-row justify-between items-center px-4 md:px-20 shadow-lg mb-8 bg-white">
@@ -22,30 +50,38 @@ export const Header = () => {
       </div>
       <div className="flex xs:flex-row items-center gap-4 md:gap-10">
         <ul className="flex xs:flex-row items-center gap-2 sm:gap-4 md:gap-10 text-sm sm:text-base md:text-xl">
-          <li>
+          <li className=" hover:text-orange-400">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className=" hover:text-orange-400">
             <Link to="/About">About</Link>
           </li>
-          <li>
+          <li className=" hover:text-orange-400">
             <Link to="/Contact">Contact</Link>
           </li>
           <li>
-            <Link to="/Cart" className="font-bold flex items-center gap-1 sm:gap-2">
+            <Link to="/Cart" className="font-bold flex items-center gap-1 sm:gap-2  hover:text-orange-400">
               <FaCartShopping />
               {cartItems.length}
             </Link>
           </li>
         </ul>
-        <button
-          className="mt-2 p-1 sm:p-2 rounded-md md:mt-0 border-none font-bold text-sm sm:text-base md:text-xl text-white bg-orange-500"
-          onClick={() => {
-            setloginbtn(loginbtn === "Login" ? "Logout" : "Login");
-          }}
-        >
-          {loginbtn}
-        </button>
+        {loginbtn === "Login" ? (
+          <Link to="/Login">
+            <button
+              className="mt-2 p-1 sm:p-2 rounded-md md:mt-0 border-none font-bold text-sm sm:text-base md:text-xl text-white bg-orange-500"
+            >
+              {loginbtn}
+            </button>
+          </Link>
+        ) : (
+          <button
+            className="mt-2 p-1 sm:p-2 rounded-md md:mt-0 border-none font-bold text-sm sm:text-base md:text-xl text-white bg-orange-500"
+            onClick={handlesignout}
+          >
+            {loginbtn}
+          </button>
+        )}
       </div>
     </div>
   );

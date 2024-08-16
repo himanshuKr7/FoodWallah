@@ -12,6 +12,7 @@ import { Provider } from "react-redux";
 import {useSelector} from "react-redux";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import appstore from "./utils/appstore";
+import Login from "./components/Login";
 
 // const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -25,6 +26,9 @@ import appstore from "./utils/appstore";
     setUsername(data.name);
   }, []);
 
+   
+
+    
   return (
     <Provider store={appstore}>
       <div className="App">
@@ -57,6 +61,10 @@ const approuter = createBrowserRouter([
       {
         path: "/restaurants/:resid",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/Login",
+        element:<Login />,
       },
       // {
       //   path: "/Grocery",
