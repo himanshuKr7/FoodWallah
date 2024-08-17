@@ -1,6 +1,6 @@
 
 # FoodWallah
-(run the backend to see products in live link)
+
 FoodWallah is a food ordering application built using React.js, styled with Tailwind CSS, and managed with Redux Toolkit. The application fetches real-time restaurant data from the Swiggy API, allowing users to search for restaurants, view detailed menus, and add items to their cart. Additionally, it includes user authentication using Firebase and a live contact form for user inquiries and support.
 
 ## Features
