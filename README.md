@@ -21,7 +21,7 @@ FoodWallah is a food ordering application built using React.js, styled with Tail
 
 ![image](https://github.com/user-attachments/assets/ba6098a4-6831-4ac0-8f4e-4994018852d2)
 
-![image](https://github.com/user-attachments/assets/bcbe9327-75fa-404b-b4fe-0e121b63c971) ![image](https://github.com/user-attachments/assets/c59228ef-3189-4c66-ad24-654ecac8405c)
+![image](https://github.com/user-attachments/assets/b1683432-7954-4cc8-a68f-7560083a6133)
 
 ![image](https://github.com/user-attachments/assets/abae8696-aba7-47e8-9edc-d63cba7e4e9e)
 
