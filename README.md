@@ -77,4 +77,4 @@ Follow these steps to get a copy of the project up and running on your local mac
 
 Contributions are welcome! Please fork the repository and submit a pull request.
 
-Made With &hearts; by Himanshu :)
+Made With &#10084; by Himanshu :)
