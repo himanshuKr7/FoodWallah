@@ -66,7 +66,7 @@ export const Header = () => {
             </Link>
           </li>
         </ul>
-        {loginbtn === "Login" ? (
+        {loginbtn === "Sign In" ? (
           <Link to="/Login">
             <button
               className="mt-2 p-1 sm:p-2 rounded-md md:mt-0 border-none font-bold text-sm sm:text-base md:text-xl text-white bg-orange-500"
