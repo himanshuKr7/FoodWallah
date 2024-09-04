@@ -24,8 +24,8 @@ class About extends React.Component {
           This is the About Us page of Food Wallah
         </h5>
         <p className="text-center text-gray-600 mb-6">
-          Developed by Himanshu, in the learning process of React JS from Namaste
-          React by Akshay Saini.
+          Developed by Himanshu, in the learning process of React JS and the concept in Real world Projects.
+         Feel free to suggest changes and improvment or make a pull Request.
         </p>
         <Userclass />
       </div>
