@@ -2,7 +2,7 @@ import { FOODWALLAH_MENU_API_URL } from "../utils/constants";
 import { useEffect,useState } from "react";
 
 const useRestaurantMenu = (resid) =>
-{    const proxyUrl = 'http://localhost:3001/api/menu/';
+{    const proxyUrl = 'https://foodwallah-2.onrender.com/api/menu/';
     const [Resinfo, setResinfo] = useState(null);
 
     useEffect(() => {
