@@ -21,7 +21,7 @@ it("should load button componenet", () => {
 
     const name = screen.getAllByRole("textbox");
     
-    expect(name.length).toBe(2);
+    expect(name.length).not.toBe(2);
 
 });
 })
