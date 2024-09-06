@@ -23,7 +23,7 @@ const Body = () => {
 
   const Onlinestatus = useOnlinestatus();
   if (Onlinestatus === false) {
-    return <h1 className="text-center text-2xl text-red-500 mt-10">Oops! It seems like you're offline!!</h1>;
+    return <h1 className="text-center text-3xl text-red-500 mt-10">Oops! It seems like you're offline!!</h1>;
   }
 
   const handleSearch = () => {
@@ -45,7 +45,7 @@ const Body = () => {
       <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-10 mb-8">
         <input
           type="text"
-          placeholder="Enter the Food Item"
+          placeholder="Enter a Restaurant Name"
           className="rounded-md bg-gray-100 px-5 border border-gray-100 outline-none py-2 w-full sm:w-auto"
           value={searchtext}
           onChange={(e) => setsearchtext(e.target.value)}
