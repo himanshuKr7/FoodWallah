@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import RestaurantCard, { UpdatedReastaurantCard } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import Loader from "./Loader";
 import useRestaurantCard from "../utils/useRestaurantCard";
 import useOnlinestatus from "../utils/useOnlinestatus";
 import Usercontext from "../utils/Usercontext";
@@ -69,7 +70,8 @@ const Body = () => {
         /> */}
       </div>
       {listofrestraunts?.length === 0 ? (
-        <h1 className="font=bold text-3xl text-center">Loading...</h1>
+        <Loader/>
+        // <h1 className="font=bold text-3xl text-center">Loading...</h1>
         // <Shimmer />
       ) : (
         <div className="flex flex-wrap justify-center">

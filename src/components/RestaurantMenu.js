@@ -3,6 +3,7 @@ import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
+import Loader from "./Loader"
 
 const RestaurantMenu = () => {
   const { resid } = useParams();
@@ -11,7 +12,7 @@ const RestaurantMenu = () => {
   const Resinfo = useRestaurantMenu(resid);
 
   if (Resinfo === null) {
-    return <h1 className="font=bold text-3xl text-center">Loading...</h1>;
+    return (<Loader/>);
   }
 
   const { name, cuisines, costForTwoMessage } = Resinfo?.cards?.[2]?.card?.card?.info || {};
