@@ -66,14 +66,6 @@ const approuter = createBrowserRouter([
         path: "/Login",
         element:<Login />,
       },
-      // {
-      //   path: "/Grocery",
-      //   element: (
-      //     <Suspense fallback={<div>Loading...</div>}>
-      //       <Grocery />
-      //     </Suspense>
-      //   ),
-      //   },
       {
         path:"/Cart",
         element:<Cart />,

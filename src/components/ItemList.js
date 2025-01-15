@@ -5,8 +5,9 @@ import { addItem } from "../utils/cartSlice";
 const ItemList = ({ items }) => {
   const dispatch = useDispatch();
 
-  const handleclick = (item) => {
+  const handleClick = (item) => {
     dispatch(addItem(item));
+    alert(`${item.card.info.name} added to the cart!`);
   };
 
   return (
@@ -18,13 +19,21 @@ const ItemList = ({ items }) => {
         >
           <div className="flex-1 py-2">
             <span className="text-lg">{item.card.info.name}</span>
-            <span> - ₹ {item.card.info.price ? item.card.info.price / 100 : item.card.info.defaultPrice / 100}</span>
-            <p className="text-xs py-2 text-gray-600">{item.card.info.description}</p>
+            <span>
+              {" "}
+              - ₹{" "}
+              {item.card.info.price
+                ? item.card.info.price / 100
+                : item.card.info.defaultPrice / 100}
+            </span>
+            <p className="text-xs py-2 text-gray-600">
+              {item.card.info.description}
+            </p>
           </div>
           <div className="w-full sm:w-3/12 relative">
             <button
               className="p-2 text-xs text-white bg-black opacity-80 shadow-lg rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              onClick={() => handleclick(item)}
+              onClick={() => handleClick(item)}
             >
               Add+
             </button>
