@@ -13,6 +13,8 @@ import {useSelector} from "react-redux";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import appstore from "./utils/appstore";
 import Login from "./components/Login";
+import { ToastContainer } from 'react-toastify';
+
 
 // const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -35,6 +37,18 @@ import Login from "./components/Login";
         <Usercontext.Provider value={{ loggedinuser: username, setUsername }}>
           <Header />
           <Outlet />
+		   <ToastContainer 
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
         </Usercontext.Provider>
       </div>
     </Provider>
